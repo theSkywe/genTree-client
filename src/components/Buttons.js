@@ -21,11 +21,12 @@ export class AddButton extends React.Component {
   render() {
     return (
       <div className="Buttons">
-      <div>
-        <button type="button" className="AddButton" onClick={this.onAddClick}> add </button>
-      </div>
+        <div>
+          <button type="button" className="AddButton" onClick={this.onAddClick}> add </button>
+        </div>       
         {this.state.showForm && <AddNodeForm parentID={this.state.parentID}/>}
       </div>
+
     )
   }
 }

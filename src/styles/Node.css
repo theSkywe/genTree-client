@@ -1,9 +1,10 @@
 .NodeContainer {
     margin: auto;
     display: flex;
-    width: 400px;
+    width: 300px;
     height: 310px;  
 }
+
 
 .Node {
     display: table-cell;
