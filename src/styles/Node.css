@@ -1,0 +1,32 @@
+.NodeContainer {
+    margin: auto;
+    display: flex;
+    width: 400px;
+    height: 310px;  
+}
+
+.Node {
+    display: table-cell;
+    border: 5px solid;
+    border-color: lightseagreen;
+    border-radius: 20px;
+    height: 260px;
+    width: 200px;
+    padding: 20px;
+    position: relative;
+}
+
+.NodeName {
+    padding-top: 5px;
+    text-align: center;
+}
+
+.NodeImage {
+    display: block; 
+    margin-top: 0 auto;
+    margin-left: auto; 
+    margin-right: auto;
+    margin-bottom: 0 auto;
+    height: 250px;
+    width: 200px;  
+}

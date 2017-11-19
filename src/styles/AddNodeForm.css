@@ -1,0 +1,11 @@
+.AddNodeForm {
+    position: relative;
+    margin: auto 0 0 0;
+    border: 5px solid;
+    border-color: lightseagreen;
+    border-radius: 20px;
+    vertical-align: middle;
+    padding:20px;
+    height: auto;
+    width: auto;
+}
