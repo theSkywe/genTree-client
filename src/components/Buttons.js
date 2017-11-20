@@ -1,6 +1,6 @@
 import React from 'react'
 import "../styles/Buttons.css"
-import { AddNodeForm } from "../components/AddNodeForm"
+import AddNodeForm from "../components/AddNodeForm"
 import * as actions from "../actions/actions"
 
 

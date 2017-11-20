@@ -20,7 +20,7 @@ export class NodeContainer extends React.Component {
       <div className="NodeContainer">
         {item.id > 1 && <DeleteButton nodeID={item.id}/>}      
         <div className="Node" >                 
-          <img className="NodeImage" src={ imagePath.concat(item.image)} alt="error"/> 
+          <img className="NodeImage" src={item.image} alt="error"/> 
           <div className="NodeName">{item.name}</div>
         </div>
         <AddButton parentID={item.id}/>
@@ -57,12 +57,10 @@ export class NodeContainer extends React.Component {
   }
 
   render() {
-    
-
     return (
           <div className="tree" data={this.props.data}>
-          <ul>
-            {this.treeBuilder(this.props.data[0])}
+            <ul>
+              {this.treeBuilder(this.props.data[0])}
             </ul>
           </div>
     )

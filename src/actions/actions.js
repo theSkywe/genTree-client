@@ -1,11 +1,9 @@
 import axios from "axios"
 
-const apiUrl = "http://localhost:8080/nodes"
-axios.defaults.withCredentials = true
+const apiUrl = "http://localhost:8080/nodes" 
 
-export function loadTree() {
-    return (dispatch) => {
-        return axios.get(apiUrl, { crossdomain: true })
+export const loadTree = () => (dispatch) => {
+    axios.get(apiUrl)
         .then((response) => {
             alert(response.data)
             dispatch(updateTree(response.data))
@@ -14,12 +12,10 @@ export function loadTree() {
             alert(error.response)
             console.log(error.response)
         })
-    }
 }
 
-export function deleteNode(nodeID) {
-    return (dispatch) => {
-        return axios.delete(apiUrl, {
+export const deleteNode = (nodeID) => (dispatch) => {
+    axios.delete(apiUrl, {
             data: {
                 id: nodeID
             }
@@ -32,28 +28,25 @@ export function deleteNode(nodeID) {
             alert(error.response)           
             console.log(error)
         })
-    }
 }
 
-export function addNode(parentID, nodeName, nodeImage){
-    return (dispatch) => {
-        return axios.post(apiUrl, { 
+export const addNode = (parentID, nodeName, nodeImage) => (dispatch) => {
+    axios.post(apiUrl, {
             data: {
-                id: parentID, 
+                id: parentID,
                 name: nodeName,
                 image: nodeImage
             },
         })
         .then((response) => {
             alert("sad")
-            alert(response.data)           
+            alert(response.data)          
             dispatch(updateTree(response.data))
         })
         .catch(error => {    
-            alert("error")     
+            alert("error")    
             console.log(error)
         })
-    }
 }
 
 export function updateTree(data){

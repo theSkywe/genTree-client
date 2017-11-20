@@ -54,7 +54,7 @@ const initialStateTest = [
 const initialState = [
     {
         id: 1,
-        name: "One",
+        name: "You",
         image: "you.png",
         lft: 1,
         rgt: 2,

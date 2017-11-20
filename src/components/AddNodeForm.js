@@ -1,5 +1,7 @@
 import React from 'react'
 //import axios from "axios"
+import { connect } from 'react-redux'
+import { addNode } from "../actions/actions"
 import "../styles/AddNodeForm.css"
 import * as actions from "../actions/actions"
 
@@ -26,11 +28,13 @@ export class AddNodeForm extends React.Component {
   }
 
 
-  handleSubmit() {
-    actions.addNode(this.state.parentID, this.state.name, this.state.image)
-    actions.loadTree()
-
- /*
+  handleSubmit(e) {
+    e.preventDefault();
+    //actions.addNode(this.state.parentID, this.state.name, this.state.image)
+    this.props.addNode(this.state.parentID, this.state.name, this.state.image)
+    //actions.loadTree()
+/*
+ 
 axios.post('http://localhost:8080/nodes', {
   params: {
          id: this.props.parentID, 
@@ -87,3 +91,8 @@ axios.post('http://localhost:8080/nodes', {
       );
     } 
 }
+
+export default connect(
+  state => ({}),
+  { addNode }
+)(AddNodeForm);
