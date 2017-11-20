@@ -2,7 +2,7 @@ import axios from "axios"
 
 
 export var getTree = function() {
-    return axios.get("http://localhost:3307/nodes")
+    return axios.get("http://localhost:8080/nodes")
         .then(function (response) {
             return response.data
         }
@@ -11,7 +11,7 @@ export var getTree = function() {
 
 
 export var addNode = function() {
-    return axios.post("http://localhost:3307/nodes", {
+    return axios.post("http://localhost:8080/nodes", {
         params: {
             id: "",
             name: "",

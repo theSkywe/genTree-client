@@ -1,7 +1,7 @@
 import React from 'react'
 //import axios from "axios"
 import "../styles/AddNodeForm.css"
-//import * as actions from "../actions/actions"
+import * as actions from "../actions/actions"
 
 
 export class AddNodeForm extends React.Component {
@@ -27,31 +27,11 @@ export class AddNodeForm extends React.Component {
 
 
   handleSubmit() {
-
-    function json(response) {  
-      return response.json()  
-    }
-
-    fetch("https://jsonplaceholder.typicode.com/posts/1", {
-      method: "get",
-      headers: {
-        "Content-type": "application/x-www-form-urlencoded; charset=UTF-8"
-      },
-      
-    })
-    .then(json)
-    .then(function(data) {
-      console.log('Request succeeded with JSON response', data);  
-    })  
-    .catch(function (error) {  
-      console.log('Request failed', error);  
-    });
-
-   /* actions.addNode(this.state.parentID, this.state.name, this.state.image)
+    actions.addNode(this.state.parentID, this.state.name, this.state.image)
     actions.loadTree()
 
-    
-axios.post('https://google.com', {
+ /*
+axios.post('http://localhost:8080/nodes', {
   params: {
          id: this.props.parentID, 
          name: this.state.name,
@@ -59,12 +39,14 @@ axios.post('https://google.com', {
      }
  })
  .then(function (response) {
-   console.log(response);
+   alert("test")
+   console.log(response.data);
  })
  .catch(function (error) {
+   alert("error")
    console.log(error);
  });
-
+/*
     axios.get("http://localhost:8080/nodes")
         .then((response) => {
             console.log("recieved response")

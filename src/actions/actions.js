@@ -1,17 +1,18 @@
 import axios from "axios"
 
 const apiUrl = "http://localhost:8080/nodes"
+axios.defaults.withCredentials = true
 
 export function loadTree() {
     return (dispatch) => {
-        return axios.get(apiUrl)
+        return axios.get(apiUrl, { crossdomain: true })
         .then((response) => {
-            console.log("recieved response")
-            dispatch(updateTree(response))
-            console.log("dispatched")
+            alert(response.data)
+            dispatch(updateTree(response.data))
         })
         .catch(error => {
-            throw(error)
+            alert(error.response)
+            console.log(error.response)
         })
     }
 }
@@ -19,43 +20,48 @@ export function loadTree() {
 export function deleteNode(nodeID) {
     return (dispatch) => {
         return axios.delete(apiUrl, {
-            body: {
+            data: {
                 id: nodeID
             }
+        },
+        { crossdomain: true })
+        .then((response) => {
+            alert(response.data)           
+            dispatch(updateTree(response.data))
         })
-        .then(loadTree())
-    /*        .then((response) => {
-            dispatch(updateTree(response))
-        })
-   */     .catch(error => {
-            throw(error)
+        .catch(error => {
+            alert(error.response)           
+            console.log(error)
         })
     }
 }
 
 export function addNode(parentID, nodeName, nodeImage){
-    console.log("addNode started")
     return (dispatch) => {
         return axios.post(apiUrl, { 
-            body: {
+            data: {
                 id: parentID, 
                 name: nodeName,
                 image: nodeImage
-            }
+            },
+        },
+        { crossdomain: true }
+      )
+        .then((response) => {
+            alert("sad")
+            alert(response.data)           
+            dispatch(updateTree(response.data))
         })
-        .then(loadTree())
-  /*      .then((response) => {
-            dispatch(updateTree(response))
-        })
-  */      .catch(error => {
-            throw(error)
+        .catch(error => {    
+            alert("error")     
+            console.log(error)
         })
     }
 }
 
-export function updateTree(response){
+export function updateTree(data){
     return {
         type: "UPDATE_TREE",
-        response: response
+        response: data
     }
 }

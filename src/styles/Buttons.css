@@ -8,22 +8,19 @@
 }
 
 .AddButton {
-    display: table-cell;
-    border: 3px solid;
+    border: 2px solid;
     border-color: darkblue;
-    border-radius: 25px;
+    border-radius: 5px;
     position: relative;
-    vertical-align: center;
+    vertical-align: middle;
     float: left; 
 }
 
 .DeleteButton {
-    display: table-cell;
-    border: 3px solid;
+    border: 2px solid;
     border-color: darkblue;
-    border-radius: 25px;
+    border-radius: 5px;
     position: relative;
-    vertical-align: center;
+    vertical-align: middle;
     float: left;
-    margin: auto;
 }

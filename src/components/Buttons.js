@@ -22,7 +22,7 @@ export class AddButton extends React.Component {
     return (
       <div className="Buttons">
         <div>
-          <button type="button" className="AddButton" onClick={this.onAddClick}> add </button>
+          <button type="button" className="AddButton" onClick={this.onAddClick}> Add </button>
         </div>       
         {this.state.showForm && <AddNodeForm parentID={this.state.parentID}/>}
       </div>
@@ -40,17 +40,12 @@ export class DeleteButton extends React.Component {
   handleDeleteClick() {
     actions.deleteNode(this.props.nodeID)
     actions.loadTree()
-    /*
-    api.deleteNode("http://localhost:3307/nodes", this.props.id).then(response => {
-      this.context.store.dispatch(actions.updateTree, response)
-    })
-    */
-}
+   }
 
   render() {
     return (
       <div className="Buttons">
-        <button type="button" className="DeleteButton" onClick={this.handleDeleteClick}> del </button>
+        <button type="button" className="DeleteButton" onClick={this.handleDeleteClick}> Del </button>
       </div>
     )
   }

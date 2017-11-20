@@ -2,6 +2,7 @@ import React from 'react'
 import { NodeContainer } from "../components/Node"
 import { connect } from "react-redux"
 import * as actions from "../actions/actions"
+//import * as api from "../utils/api"
 
 export class App extends React.Component {
     
@@ -9,7 +10,7 @@ export class App extends React.Component {
     componentDidMount() {
         actions.loadTree()
         /*
-        api.getTree("http://localhost:3307/nodes").then(response => {
+        api.getTree("http://localhost:8080/nodes").then(response => {
             this.context.store.dispatch(actions.updateTree, response)
         })
         */

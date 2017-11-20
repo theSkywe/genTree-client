@@ -18,7 +18,7 @@ export class NodeContainer extends React.Component {
     
     return (             
       <div className="NodeContainer">
-        {item.id > 1 && <DeleteButton nodeID={item.id}/>}     
+        {item.id > 1 && <DeleteButton nodeID={item.id}/>}      
         <div className="Node" >                 
           <img className="NodeImage" src={ imagePath.concat(item.image)} alt="error"/> 
           <div className="NodeName">{item.name}</div>
