@@ -1,21 +1,15 @@
 import React from 'react'
 import { NodeContainer } from "../components/Node"
 import { connect } from "react-redux"
-import * as actions from "../actions/actions"
+import { loadTree } from "../actions/actions"
 //import * as api from "../utils/api"
+import "../styles/App.css"
 
 export class App extends React.Component {
-    
-    
+
     componentDidMount() {
-        //this.props.loadTree()
-        /*
-        api.getTree("http://localhost:8080/nodes").then(response => {
-            this.context.store.dispatch(actions.updateTree, response)
-        })
-        */
+        this.props.loadTree()
     }
-    
 
     render() {
         const data = this.props.data
@@ -33,5 +27,7 @@ function mapStateToProps(state) {
     }
 }
 
+
   
-export default connect(mapStateToProps)(App)
+export default connect(mapStateToProps, (state => ({}),
+                                    {loadTree }))(App)

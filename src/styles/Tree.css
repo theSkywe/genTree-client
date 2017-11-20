@@ -1,5 +1,9 @@
 /*Now the CSS*/
 * {margin: 0; padding: 0;}
+.tree {
+	display: flex;
+	justify-content: center;
+}
 
 .tree ul {
 	padding-top: 20px; position: relative;
@@ -10,6 +14,8 @@
 }
 
 .tree li {
+	margin-left: 5px;
+    margin-right: 5px;
 	float: left; text-align: center;
 	list-style-type: none;
 	position: relative;
@@ -86,18 +92,6 @@ right connector from last child*/
 	-moz-transition: all 0.5s;
 }
 
-/*Time for some hover effects*/
-/*We will apply the hover effect the the lineage of the element also*/
-.tree li a:hover, .tree li a:hover+ul li a {
-	background: #c8e4f8; color: #000; border: 1px solid #94a0b4;
-}
-/*Connector styles on hover*/
-.tree li a:hover+ul li::after, 
-.tree li a:hover+ul li::before, 
-.tree li a:hover+ul::before, 
-.tree li a:hover+ul ul::before{
-	border-color:  #94a0b4;
-}
 
 /*Thats all. I hope you enjoyed it.
 Thanks :)*/

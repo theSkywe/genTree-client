@@ -83,7 +83,7 @@ axios.post('http://localhost:8080/nodes', {
             <label>Upload photo</label>
             <input name="image" type="text" value={this.state.image} onChange={this.handleImageChange}/>
           </div>       
-          <button type="submit">Submit to {this.props.parentID}</button> 
+          <button type="submit">Submit</button> 
         </form>
       );
     } 
