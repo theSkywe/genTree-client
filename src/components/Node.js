@@ -28,7 +28,7 @@ export class NodeContainer extends React.Component {
       <div className="NodeContainer">
         <DeleteButton nodeID={item.id}/>  
         <div className="Node" >                 
-          <img className="NodeImage" src={item.image} alt="error"/> 
+          <img className="NodeImage" src={require("../images/no_image.png")} alt="error"/> 
           <div className="NodeName">{item.name}</div>
         </div>
         <AddButton parentID={item.id}/>

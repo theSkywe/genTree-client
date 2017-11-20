@@ -15,6 +15,7 @@ export class AddNodeForm extends React.Component {
   this.handleNameChange = this.handleNameChange.bind(this)
   this.handleImageChange = this.handleImageChange.bind(this)
   this.handleSubmit = this.handleSubmit.bind(this)
+  this.handleCancel = this.handleCancel.bind(this)
   }
 
   handleNameChange(event) {
@@ -25,65 +26,35 @@ export class AddNodeForm extends React.Component {
     this.setState({image: event.target.value})
   }
 
-
   handleSubmit(e) {
     e.preventDefault()
     this.props.addNode(this.props.parentID, this.state.name, this.state.image)
     this.props.loadTree()
-/*
- 
-axios.post('http://localhost:8080/nodes', {
-  params: {
-         id: this.props.parentID, 
-         name: this.state.name,
-         image: this.state.image
-     }
- })
- .then(function (response) {
-   alert("test")
-   console.log(response.data);
- })
- .catch(function (error) {
-   alert("error")
-   console.log(error);
- });
-/*
-    axios.get("http://localhost:8080/nodes")
-        .then((response) => {
-            console.log("recieved response")
-            store.dispatch(actions.updateTree(response))
-            console.log("dispatched")
-        })
-        .catch(error => {
-            throw(error)
-        })
-        */
-
-    /*
-    api.addNode("http://localhost:3307/nodes", this.props.id, this.props.name, this.props.image).then(response => {
-      this.context.store.dispatch(actions.updateTree, response)
-    })
-    */
+    this.handleCancel()
   }
 
-
-  handleImageUpload() {
-    
+  handleCancel() {
+    this.props.addClick()
   }
+
+//  handleImageUpload() {}
 
 
   render() {
       return (
         <form className="AddNodeForm" onSubmit={this.handleSubmit}>
           <div>
-            <label>Enter name:</label>
+            <label style={{display: "block"}}>Name</label>
             <input name="name" type="text" value={this.state.name} onChange={this.handleNameChange}/>
           </div>
           <div>
-            <label>Upload photo</label>
+            <label style={{display: "block"}}>Photo</label>
             <input name="image" type="text" value={this.state.image} onChange={this.handleImageChange}/>
           </div>       
-          <button type="submit">Submit</button> 
+          <div className="submitGroup">
+            <button type="cancel" onClick={this.handleCancel}> Cancel </button>
+            <button type="submit">Submit</button> 
+          </div>
         </form>
       );
     } 

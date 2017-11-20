@@ -12,8 +12,10 @@ export class AddButton extends React.Component {
       showForm: false,
       parentID: this.props.parentID
     };
+
     this.onAddClick = this.onAddClick.bind(this)
   }
+
 
   onAddClick() {
     this.setState({showForm: !this.state.showForm})
@@ -25,9 +27,8 @@ export class AddButton extends React.Component {
         <div>
           <button type="button" className="AddButton" onClick={this.onAddClick}> Add </button>
         </div>       
-        {this.state.showForm && <AddNodeForm parentID={this.props.parentID}/>}
-      </div>
-
+        {this.state.showForm && <AddNodeForm parentID={this.props.parentID} addClick={this.onAddClick}/>}
+      </div>  
     )
   }
 }
