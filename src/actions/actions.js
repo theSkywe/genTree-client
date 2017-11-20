@@ -14,9 +14,7 @@ export const loadTree = () => (dispatch) => {
 }
 
 export const deleteNode = (nodeID) => (dispatch) => {
-    axios.delete(apiUrl+"/"+nodeID, {
-            id: nodeID
-        })
+    axios.delete(apiUrl + "/" + nodeID)
         .then((response) => {         
             dispatch(updateTree(response.data))
         })
