@@ -38,7 +38,7 @@ export class NodeContainer extends React.Component {
                 this.props.data.filter( (obj) => {
                   if (obj.lft > p.lft && obj.rgt < p.rgt && (obj.depth === (p.depth + 1))) {
                     return true
-                  }
+                  } else {return false}
                 }).map( c => {
                   return (
                     this.treeBuilder(c)                  

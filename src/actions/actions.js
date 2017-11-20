@@ -23,8 +23,7 @@ export function deleteNode(nodeID) {
             data: {
                 id: nodeID
             }
-        },
-        { crossdomain: true })
+        })
         .then((response) => {
             alert(response.data)           
             dispatch(updateTree(response.data))
@@ -44,9 +43,7 @@ export function addNode(parentID, nodeName, nodeImage){
                 name: nodeName,
                 image: nodeImage
             },
-        },
-        { crossdomain: true }
-      )
+        })
         .then((response) => {
             alert("sad")
             alert(response.data)           
