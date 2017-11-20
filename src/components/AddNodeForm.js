@@ -1,15 +1,13 @@
 import React from 'react'
-//import axios from "axios"
 import { connect } from 'react-redux'
-import { addNode } from "../actions/actions"
+import { addNode, loadTree } from "../actions/actions"
 import "../styles/AddNodeForm.css"
-import * as actions from "../actions/actions"
 
 
 export class AddNodeForm extends React.Component {
   constructor(props) {
     super(props)
-    this.state ={
+    this.state = {
       name: "",
       image: ""
   }
@@ -29,10 +27,9 @@ export class AddNodeForm extends React.Component {
 
 
   handleSubmit(e) {
-    e.preventDefault();
-    //actions.addNode(this.state.parentID, this.state.name, this.state.image)
+    e.preventDefault()
     this.props.addNode(this.props.parentID, this.state.name, this.state.image)
-    //actions.loadTree()
+    this.props.loadTree()
 /*
  
 axios.post('http://localhost:8080/nodes', {
@@ -86,7 +83,7 @@ axios.post('http://localhost:8080/nodes', {
             <label>Upload photo</label>
             <input name="image" type="text" value={this.state.image} onChange={this.handleImageChange}/>
           </div>       
-          <button type="submit">Submit</button> 
+          <button type="submit">Submit to {this.props.parentID}</button> 
         </form>
       );
     } 
@@ -94,5 +91,5 @@ axios.post('http://localhost:8080/nodes', {
 
 export default connect(
   state => ({}),
-  { addNode }
+  { addNode, loadTree }
 )(AddNodeForm);

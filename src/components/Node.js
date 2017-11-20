@@ -1,6 +1,7 @@
 import React from 'react'
 import { connect } from "react-redux"
-import { AddButton, DeleteButton } from "./Buttons"
+import { AddButton} from "./Buttons"
+import DeleteButton from "./Buttons"
 import "../styles/Node.css"
 import "../styles/Tree.css"
 
@@ -12,6 +13,12 @@ function mapStateToProps(state) {
 }
 
 export class NodeContainer extends React.Component {
+  constructor(props) {
+    super(props)
+    this.setState = {
+      id: this.props.id
+    }
+  }
 
   nodeRender(item) {
     var imagePath = "../images/"

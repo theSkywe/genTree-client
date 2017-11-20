@@ -8,7 +8,7 @@ export class App extends React.Component {
     
     
     componentDidMount() {
-        actions.loadTree()
+        //this.props.loadTree()
         /*
         api.getTree("http://localhost:8080/nodes").then(response => {
             this.context.store.dispatch(actions.updateTree, response)
