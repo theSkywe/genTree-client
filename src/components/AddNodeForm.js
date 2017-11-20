@@ -31,7 +31,7 @@ export class AddNodeForm extends React.Component {
   handleSubmit(e) {
     e.preventDefault();
     //actions.addNode(this.state.parentID, this.state.name, this.state.image)
-    this.props.addNode(this.state.parentID, this.state.name, this.state.image)
+    this.props.addNode(this.props.parentID, this.state.name, this.state.image)
     //actions.loadTree()
 /*
  
