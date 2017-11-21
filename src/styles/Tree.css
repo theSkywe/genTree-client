@@ -1,4 +1,3 @@
-/*Now the CSS*/
 * {margin: 0; padding: 0;}
 .tree {
 	display: flex;
@@ -45,7 +44,7 @@ any siblings*/
 }
 
 /*Remove space from the top of single children*/
-.tree li:only-child{ padding-top: 0px;}
+.tree li:only-child{ padding-top: 0px; }
 
 /*Remove left connector from first child and 
 right connector from last child*/

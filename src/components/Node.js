@@ -21,13 +21,13 @@ export class NodeContainer extends React.Component {
   }
 
   nodeRender(item) {
-    var imagePath = "../images/"
-    
+    const serverUploadFolder = "http://localhost:8080/"
+    const imagePath = serverUploadFolder + item.image
     return (             
       <div className="NodeContainer">
         <DeleteButton nodeID={item.id}/>  
         <div className="Node" >                 
-          <img className="NodeImage" src={require("../images/no_image.png")} alt="error"/> 
+          <img className="NodeImage" src={(imagePath)} alt="no_image"/> 
           <div className="NodeName">{item.name}</div>
         </div>
         <AddButton parentID={item.id}/>

@@ -9,7 +9,7 @@ export class AddNodeForm extends React.Component {
     super(props)
     this.state = {
       name: "",
-      image: ""
+      image: null
   }
 
   this.handleNameChange = this.handleNameChange.bind(this)
@@ -23,21 +23,24 @@ export class AddNodeForm extends React.Component {
   }
 
   handleImageChange(event) {
-    this.setState({image: event.target.value})
-  }
-
-  handleSubmit(e) {
-    e.preventDefault()
-    this.props.addNode(this.props.parentID, this.state.name, this.state.image)
-    this.props.loadTree()
-    this.handleCancel()
+    this.setState({image: event.target.files[0]})
   }
 
   handleCancel() {
     this.props.addClick()
   }
 
-//  handleImageUpload() {}
+  handleSubmit(event) {
+    event.preventDefault()
+    const data = new FormData()
+
+    data.append("id", this.props.parentID)
+    data.append("name", this.state.name)
+    data.append("image", this.state.image)
+    this.props.addNode(data)
+    this.props.loadTree()
+    this.handleCancel()
+  }
 
   render() {
     return (
@@ -48,7 +51,7 @@ export class AddNodeForm extends React.Component {
         </div>
         <div>
           <label style={{display: "block"}}>Photo</label>
-          <input name="image" type="text" value={this.state.image} onChange={this.handleImageChange}/>
+          <input name="image" type="file"  onChange={this.handleImageChange}/>
         </div>       
         <div className="submitGroup">
           <button type="cancel" onClick={this.handleCancel}> Cancel </button>

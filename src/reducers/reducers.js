@@ -2,7 +2,7 @@ const initialState = [
     {
         id: 1,
         name: "You",
-        image: "you.png",
+        image: "uploaded/you.png",
         lft: 1,
         rgt: 2,
         depth: 1

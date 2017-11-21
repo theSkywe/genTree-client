@@ -35,7 +35,7 @@
     display: flex; 
     height: 230px;
     width: 200px;  
-    border-radius: 250px;
+    border-radius: 80px;
     align-content: center;
     justify-content: center;
 }

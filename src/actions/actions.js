@@ -24,12 +24,13 @@ export const deleteNode = (nodeID) => (dispatch) => {
         })
 }
 
-export const addNode = (parentID, nodeName, nodeImage) => (dispatch) => {
-    axios.post(apiUrl, {
-                id: parentID,
-                name: nodeName,
-                image: nodeImage
-        })
+export const addNode = (data) => (dispatch) => {
+    axios.post(apiUrl, data,
+    {
+        headers: {
+            "Content-type": "multipart/form-data"
+        }
+    })
         .then((response) => {       
             dispatch(updateTree(response.data))
         })
