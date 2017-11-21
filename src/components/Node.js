@@ -20,7 +20,6 @@ export class NodeContainer extends React.Component {
     }
   }
 
-
   nodeRender(item) {
     var imagePath = "../images/"
     
@@ -39,39 +38,41 @@ export class NodeContainer extends React.Component {
   treeBuilder(p) {
     if ((p.rgt-p.lft) > 1) {
       return ( 
-          <li>
-            {this.nodeRender(p)}
-              { <ul>
-                {
-                this.props.data.filter( (obj) => {
-                  if (obj.lft > p.lft && obj.rgt < p.rgt && (obj.depth === (p.depth + 1))) {
-                    return true
-                  } else {return false}
-                }).map( c => {
-                  return (
-                    this.treeBuilder(c)                  
-                  )
-                })}
-              </ul>}
-          </li>
+        <li>
+          {this.nodeRender(p)}
+            { 
+            <ul>
+              {
+              this.props.data.filter( (obj) => {
+                if (obj.lft > p.lft && obj.rgt < p.rgt && (obj.depth === (p.depth + 1))) {
+                  return true
+                } else { return false }
+              }).map( c => {
+                return ( this.treeBuilder(c) )
+              })
+              }
+            </ul>
+          }
+        </li>
       ) 
     } else {
       return (     
-          <li>
-            {this.nodeRender(p)}
-          </li>  
+        <li>
+          {this.nodeRender(p)}
+        </li>  
       )
     }
   }
 
   render() {
     return (
-          <div className="tree" data={this.props.data}>
-            <ul>
-              {this.treeBuilder(this.props.data[0])}
-            </ul>
-          </div>
+      <div className="tree" data={this.props.data}>
+        <ul>
+          {this.treeBuilder(this.props.data[0])}
+        </ul>
+      </div>
     )
   }
 }
+
 export default connect(mapStateToProps)(NodeContainer)

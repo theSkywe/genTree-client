@@ -39,28 +39,24 @@ export class AddNodeForm extends React.Component {
 
 //  handleImageUpload() {}
 
-
   render() {
-      return (
-        <form className="AddNodeForm" onSubmit={this.handleSubmit}>
-          <div>
-            <label style={{display: "block"}}>Name</label>
-            <input name="name" type="text" value={this.state.name} onChange={this.handleNameChange}/>
-          </div>
-          <div>
-            <label style={{display: "block"}}>Photo</label>
-            <input name="image" type="text" value={this.state.image} onChange={this.handleImageChange}/>
-          </div>       
-          <div className="submitGroup">
-            <button type="cancel" onClick={this.handleCancel}> Cancel </button>
-            <button type="submit">Submit</button> 
-          </div>
-        </form>
-      );
-    } 
+    return (
+      <form className="AddNodeForm" onSubmit={this.handleSubmit}>
+        <div>
+          <label style={{display: "block"}}>Name</label>
+          <input name="name" type="text" value={this.state.name} onChange={this.handleNameChange}/>
+        </div>
+        <div>
+          <label style={{display: "block"}}>Photo</label>
+          <input name="image" type="text" value={this.state.image} onChange={this.handleImageChange}/>
+        </div>       
+        <div className="submitGroup">
+          <button type="cancel" onClick={this.handleCancel}> Cancel </button>
+          <button type="submit">Submit</button> 
+        </div>
+      </form>
+    );
+  } 
 }
 
-export default connect(
-  state => ({}),
-  { addNode, loadTree }
-)(AddNodeForm);
+export default connect( state => ({}), { addNode, loadTree } )(AddNodeForm);

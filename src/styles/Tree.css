@@ -45,7 +45,7 @@ any siblings*/
 }
 
 /*Remove space from the top of single children*/
-.tree li:only-child{ padding-top: 0;}
+.tree li:only-child{ padding-top: 0px;}
 
 /*Remove left connector from first child and 
 right connector from last child*/
@@ -65,14 +65,10 @@ right connector from last child*/
 	-moz-border-radius: 5px 0 0 0;
 }
 
-/*Time to add downward connectors from parents*/
+/*downward connectors from parents*/
 .tree ul ul::before{
 	content: '';
 	position: absolute; top: -5px; left: 50%;
 	border-left: 1px solid rgb(121, 139, 221);
 	width: 0; height: 25px;
 }
-
-
-/*Thats all. I hope you enjoyed it.
-Thanks :)*/

@@ -2,7 +2,6 @@ import React from 'react'
 import { NodeContainer } from "../components/Node"
 import { connect } from "react-redux"
 import { loadTree } from "../actions/actions"
-//import * as api from "../utils/api"
 import "../styles/App.css"
 
 export class App extends React.Component {
@@ -26,8 +25,5 @@ function mapStateToProps(state) {
         data: state
     }
 }
-
-
   
-export default connect(mapStateToProps, (state => ({}),
-                                    {loadTree }))(App)
+export default connect(mapStateToProps, (state => ({}), {loadTree}))(App)
